@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kisan Rozgar - Prototype</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Kisan Rozgar (Prototype)</h1>
+    <p class="note">Prototype only. OTP is always <strong>123456</strong>.</p>
+
+    <section id="auth">
+      <h2>Login / Sign up</h2>
+      <div class="row">
+        <label>Phone: <input id="phone" placeholder="10-digit phone" /></label>
+        <label>Role:
+          <select id="role">
+            <option value="farmer">Farmer</option>
+            <option value="worker">Worker</option>
+          </select>
+        </label>
+        <button id="startOtpBtn">Start OTP</button>
+      </div>
+      <div class="row">
+        <label>OTP: <input id="otp" placeholder="123456" /></label>
+        <button id="verifyOtpBtn">Verify</button>
+      </div>
+      <div id="authStatus"></div>
+    </section>
+
+    <section id="app" class="hidden">
+      <div class="row">
+        <button id="getLocationBtn">Use my location</button>
+        <span id="locationStatus"></span>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="farmerPanel">
+          <h2>Farmer</h2>
+
+          <h3>Post a Job</h3>
+          <label>Title <input id="jobTitle" placeholder="Weeding help" /></label>
+          <label>Description <input id="jobDesc" placeholder="Any details..." /></label>
+          <label>Wage (₹/day) <input id="jobWage" type="number" /></label>
+          <label>Workers needed <input id="jobNum" type="number" value="1" /></label>
+          <label>Radius (km)
+            <select id="jobRadius"><option>5</option><option>10</option><option>15</option></select>
+          </label>
+          <button id="postJobBtn">Post Job</button>
+          <div id="postJobStatus"></div>
+
+          <h3>Search Workers Nearby</h3>
+          <label>Skills (comma) <input id="searchSkills" placeholder="harvesting,weeding" /></label>
+          <label>Min rate <input id="minRate" type="number" /></label>
+          <label>Max rate <input id="maxRate" type="number" /></label>
+          <label>Radius (km)
+            <select id="searchRadius"><option>5</option><option>10</option><option>15</option></select>
+          </label>
+          <button id="searchWorkersBtn">Search</button>
+          <ul id="workersList"></ul>
+        </div>
+
+        <div class="card" id="workerPanel">
+          <h2>Worker</h2>
+          <h3>My Profile</h3>
+          <label>Name <input id="workerName" placeholder="Your name" /></label>
+          <label>Skills (comma) <input id="workerSkills" placeholder="harvesting,weeding" /></label>
+          <label>Day rate (₹) <input id="workerRate" type="number" /></label>
+          <label>Service radius (km)
+            <select id="workerRadius"><option>5</option><option>10</option><option>15</option></select>
+          </label>
+          <label><input type="checkbox" id="availableToday" /> Available today</label>
+          <button id="saveWorkerBtn">Save profile</button>
+          <div id="saveWorkerStatus"></div>
+
+          <h3>Jobs Near Me</h3>
+          <label>Search radius (km)
+            <select id="jobsRadius"><option>5</option><option>10</option><option>15</option></select>
+          </label>
+          <button id="searchJobsBtn">Find jobs</button>
+          <ul id="jobsList"></ul>
+
+          <h3>Alerts</h3>
+          <ul id="alerts"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
+

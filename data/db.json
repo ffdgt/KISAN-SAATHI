@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1363a310-17d1-4b81-a770-1fabafd7468d",
+      "phone": "9347765376",
+      "role": "farmer",
+      "name": "",
+      "language": "en",
+      "rating": 0,
+      "created_at": "2025-09-01T09:30:36.949Z"
+    }
+  ],
+  "workers": [],
+  "jobs": [
+    {
+      "id": "482b26c2-826f-479b-b95f-8fed0e2954a1",
+      "farmerId": "1363a310-17d1-4b81-a770-1fabafd7468d",
+      "title": "weeding help ",
+      "description": "need a good worker ",
+      "wage": 500,
+      "numWorkers": 5,
+      "startAt": "2025-09-01T09:35:06.870Z",
+      "durationHours": 8,
+      "lat": 16.833694,
+      "lng": 79.814204,
+      "radiusKm": 5,
+      "status": "open",
+      "createdAt": "2025-09-01T09:35:06.870Z"
+    }
+  ],
+  "invites": []
+}

@@ -1,0 +1,77 @@
+@host = http://localhost:3000
+@token = paste-token-here
+
+### Start OTP (Worker)
+POST {{host}}/api/auth/otp/start
+Content-Type: application/json
+
+{
+  "phone": "9999990001",
+  "role": "worker"
+}
+
+### Verify OTP (Worker)
+POST {{host}}/api/auth/otp/verify
+Content-Type: application/json
+
+{
+  "phone": "9999990001",
+  "role": "worker",
+  "otp": "123456"
+}
+
+### Save Worker Profile (use token from Verify OTP)
+POST {{host}}/api/workers/me/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Ram",
+  "lat": 12.9716,
+  "lng": 77.5946,
+  "radiusKm": 5,
+  "skills": ["harvesting", "weeding"],
+  "rate": 500,
+  "availableToday": true
+}
+
+### Find Workers Nearby (public)
+GET {{host}}/api/workers/nearby?lat=12.9716&lng=77.5946&radius=5&onlyAvailable=true
+
+### Start OTP (Farmer)
+POST {{host}}/api/auth/otp/start
+Content-Type: application/json
+
+{
+  "phone": "9999990002",
+  "role": "farmer"
+}
+
+### Verify OTP (Farmer)
+POST {{host}}/api/auth/otp/verify
+Content-Type: application/json
+
+{
+  "phone": "9999990002",
+  "role": "farmer",
+  "otp": "123456"
+}
+
+### Post Job (Farmer) — use farmer token in @token
+POST {{host}}/api/jobs
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Harvest help",
+  "description": "2 people for 1 day",
+  "wage": 600,
+  "numWorkers": 2,
+  "lat": 12.9716,
+  "lng": 77.5946,
+  "radiusKm": 5
+}
+
+### Jobs Nearby (as worker)
+GET {{host}}/api/jobs/nearby?lat=12.9716&lng=77.5946&radius=5
+
