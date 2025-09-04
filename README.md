@@ -31,3 +31,9 @@ Follow these steps to get a local copy of the project up and running.
 ```bash
 git clone [https://github.com/ffdgt/KISAN-SAATHI.git](https://github.com/ffdgt/KISAN-SAATHI.git)
 cd KISAN-SAATHI
+
+### to start the app
+```bash
+npm install
+
+
